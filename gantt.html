@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justice Link BD - Gantt Chart</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Justice Link BD - Project Timeline</h1>
+        <nav>
+            <a href="index.html">Activity Table</a>
+            <a href="gantt.html" class="active">Gantt Chart</a>
+            <a href="wbs.html">WBS</a>
+            <a href="cashflow.html">Cash Flow</a>
+            <a href="critical-path.html">Critical Path</a>
+            <a href="use-cases.html">Use Case DIagram</a>
+        </nav>
+        <div class="mermaid">
+            gantt
+                title Justice Link BD - Critical Path
+                dateFormat  YYYY-MM-DD
+                section Project Setup
+                Project Setup                     :a1, 2025-06-20, 15d
+
+                section User Authentication
+                User Authentication              :a2, after a1, 12d
+
+                section Report System
+                Report System                    :a3, after a2, 16d
+
+                section Emergency SOS
+                Emergency SOS                    :a4, after a3, 14d
+                
+                section Testing & Deployment
+                Testing & Deployment             :a5, after a4, 10d
+        </div>
+    </div>
+    <script src="gantt.js"></script>
+</body>
+</html>

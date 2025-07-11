@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justice Link BD - Cash Flow Analysis</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Justice Link BD - Cash Flow Analysis</h1>
+        <nav>
+            <a href="index.html">Activity Table</a>
+            <a href="gantt.html">Gantt Chart</a>
+            <a href="wbs.html">WBS</a>
+            <a href="cashflow.html" class="active">Cash Flow</a>
+            <a href="critical-path.html">Critical Path</a>
+            <a href="use-cases.html">Use Case DIagram</a>
+        </nav>
+        
+        <div class="analysis-container">
+            <h2>Project Cost Breakdown</h2>
+            <table class="financial-table">
+                <thead>
+                    <tr>
+                        <th>Cost Category</th>
+                        <th>Amount (BDT)</th>
+                        <th>Timeline</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Development Team</td>
+                        <td>20,000</td>
+                        <td>Months 1-6</td>
+                    </tr>
+                    <tr>
+                        <td>Supabase Backend</td>
+                        <td>50,000</td>
+                        <td>Months 1-12</td>
+                    </tr>
+                    <tr>
+                        <td>UI/UX Design</td>
+                        <td>10,000</td>
+                        <td>Months 1-3</td>
+                    </tr>
+                    <tr>
+                        <td>Marketing</td>
+                        <td>200,000</td>
+                        <td>Months 7-12</td>
+                    </tr>
+                    <tr>
+                        <td>Server Maintenance</td>
+                        <td>120,000</td>
+                        <td>Months 7-12</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td><strong>Total Project Cost</strong></td>
+                        <td><strong>400,000</strong></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Revenue Projections</h2>
+            <table class="financial-table">
+                <thead>
+                    <tr>
+                        <th>Revenue Stream</th>
+                        <th>Amount (BDT)</th>
+                        <th>Timeline</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ad Revenue</td>
+                        <td>100,000</td>
+                        <td>Months 12-17</td>
+                    </tr>
+                    <tr>
+                        <td>Sponsorships</td>
+                        <td>450,000 (Expected)</td>
+                        <td>Month 9</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td><strong>Total Revenue</strong></td>
+                        <td><strong>550,000</strong></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="chart-container">
+                <h2>Cash Flow Visualization</h2>
+                <div class="chart-row">
+                    <div class="chart-wrapper">
+                        <canvas id="cashFlowChart"></canvas>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="profitChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Monthly Cash Flow Statement</h2>
+            <table class="financial-table">
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>Inflows</th>
+                        <th>Outflows</th>
+                        <th>Net Cash Flow</th>
+                        <th>Cumulative Cash</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>0</td>
+                        <td>10,833</td>
+                        <td class="negative">-10,833</td>
+                        <td class="negative">-10,833</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>0</td>
+                        <td>10,833</td>
+                        <td class="negative">-10,833</td>
+                        <td class="negative">-21,666</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>10,833</td>
+                        <td class="negative">-10,833</td>
+                        <td class="negative">-32,499</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>0</td>
+                        <td>7,500</td>
+                        <td class="negative">-7,500</td>
+                        <td class="negative">-39,999</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>0</td>
+                        <td>7,500</td>
+                        <td class="negative">-7,500</td>
+                        <td class="negative">-47,499</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>0</td>
+                        <td>7,500</td>
+                        <td class="negative">-7,500</td>
+                        <td class="negative">-54,999</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td>7</td>
+                        <td>0</td>
+                        <td>57,500</td>
+                        <td class="negative">-57,500</td>
+                        <td class="negative">-112,499</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>0</td>
+                        <td>57,500</td>
+                        <td class="negative">-57,500</td>
+                        <td class="negative">-169,999</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td>9</td>
+                        <td>450,000</td>
+                        <td>57,500</td>
+                        <td class="positive">+392,500</td>
+                        <td class="positive">+222,501</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>0</td>
+                        <td>57,500</td>
+                        <td class="negative">-57,500</td>
+                        <td class="positive">+165,001</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>0</td>
+                        <td>57,500</td>
+                        <td class="negative">-57,500</td>
+                        <td class="positive">+107,501</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>100,000</td>
+                        <td>57,500</td>
+                        <td class="positive">+42,500</td>
+                        <td class="positive">+150,001</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td><strong>Year 1 Total</strong></td>
+                        <td><strong>550,000</strong></td>
+                        <td><strong>400,000</strong></td>
+                        <td><strong>+150,000</strong></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="analysis-section">
+                <h2>Key Financial Metrics</h2>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <h3>Break-even Point</h3>
+                        <p class="metric-value">Month 9</p>
+                        <p class="metric-description">When cumulative cash turns positive</p>
+                    </div>
+                    <div class="metric-card">
+                        <h3>Net Profit (Year 1)</h3>
+                        <p class="metric-value">+150,000 BDT</p>
+                        <p class="metric-description">Total inflows minus outflows</p>
+                    </div>
+                    <div class="metric-card">
+                        <h3>Peak Investment</h3>
+                        <p class="metric-value">-169,999 BDT</p>
+                        <p class="metric-description">Maximum negative cash position</p>
+                    </div>
+                    <div class="metric-card">
+                        <h3>ROI (First Year)</h3>
+                        <p class="metric-value">37.5%</p>
+                        <p class="metric-description">(Profit / Total Cost) × 100</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cash Flow Chart
+            const cashFlowCtx = document.getElementById('cashFlowChart').getContext('2d');
+            new Chart(cashFlowCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5', 'Month 6', 'Month 7', 'Month 8', 'Month 9', 'Month 10', 'Month 11', 'Month 12'],
+                    datasets: [
+                        {
+                            label: 'Inflows',
+                            data: [0, 0, 0, 0, 0, 0, 0, 0, 450000, 0, 0, 100000],
+                            backgroundColor: 'rgba(75, 192, 192, 0.7)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Outflows',
+                            data: [10833, 10833, 10833, 7500, 7500, 7500, 57500, 57500, 57500, 57500, 57500, 57500],
+                            backgroundColor: 'rgba(255, 99, 132, 0.7)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Amount (BDT)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Monthly Cash Flow'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + context.raw.toLocaleString() + ' BDT';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Cumulative Profit Chart
+            const profitCtx = document.getElementById('profitChart').getContext('2d');
+            new Chart(profitCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5', 'Month 6', 'Month 7', 'Month 8', 'Month 9', 'Month 10', 'Month 11', 'Month 12'],
+                    datasets: [{
+                        label: 'Cumulative Cash Position',
+                        data: [-10833, -21666, -32499, -39999, -47499, -54999, -112499, -169999, 222501, 165001, 107501, 150001],
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 3,
+                        tension: 0.3,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            title: {
+                                display: true,
+                                text: 'Cumulative Cash (BDT)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Cumulative Cash Flow'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.raw.toLocaleString() + ' BDT';
+                                }
+                            }
+                        },
+                        annotation: {
+                            annotations: {
+                                line1: {
+                                    type: 'line',
+                                    yMin: 0,
+                                    yMax: 0,
+                                    borderColor: 'rgba(0, 0, 0, 0.5)',
+                                    borderWidth: 2,
+                                    borderDash: [6, 6]
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

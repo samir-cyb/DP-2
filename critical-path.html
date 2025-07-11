@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justice Link BD - Critical Path Analysis</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Justice Link BD - Critical Path Analysis</h1>
+        <nav>
+            <a href="index.html">Activity Table</a>
+            <a href="gantt.html">Gantt Chart</a>
+            <a href="wbs.html">WBS</a>
+            <a href="cashflow.html">Cash Flow</a>
+            <a href="critical-path.html" class="active">Critical Path</a>
+            <a href="use-cases.html">Use Case DIagram</a>
+        </nav>
+        
+        <div class="analysis-container">
+            <h2>Critical Path Identification</h2>
+            <div class="mermaid">
+                flowchart LR
+                    A[Project Setup] --> B[User Authentication]
+                    B --> C[Reporting System]
+                    C --> D[Emergency SOS]
+                    D --> E[Testing & Deployment]
+                    style A stroke:#f00,stroke-width:4px
+                    style B stroke:#f00,stroke-width:4px
+                    style C stroke:#f00,stroke-width:4px
+                    style D stroke:#f00,stroke-width:4px
+                    style E stroke:#f00,stroke-width:4px
+            </div>
+
+            <table class="critical-path-table">
+                <thead>
+                    <tr>
+                        <th>Critical Task</th>
+                        <th>Duration</th>
+                        <th>Dependencies</th>
+                        <th>Total Float</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Project Setup</td>
+                        <td>15 days</td>
+                        <td>None</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>User Authentication</td>
+                        <td>12 days</td>
+                        <td>Project Setup</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>Reporting System</td>
+                        <td>16 days</td>
+                        <td>User Authentication</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>Emergency SOS</td>
+                        <td>14 days</td>
+                        <td>Reporting System</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>Testing & Deployment</td>
+                        <td>10 days</td>
+                        <td>Emergency SOS</td>
+                        <td>0</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="analysis-section">
+                <h2>Key Observations</h2>
+                <ul>
+                    <li>Total project duration: <strong>67 days</strong></li>
+                    <li>Any delay in critical tasks will delay the entire project</li>
+                    <li>Non-critical tasks have float time available</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="gantt.js"></script>
+</body>
+</html>
