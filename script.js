@@ -181,6 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
+    
     const tbody = document.querySelector('#activityTable tbody');
     
     activities.forEach(item => {
