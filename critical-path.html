@@ -20,6 +20,92 @@
             font-size: 20px;
             color: #333;
         }
+        .task-box {
+            border: 2px solid #333;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            width: 120px;
+            text-align: center;
+            position: relative;
+        }
+        .critical-task {
+            border-color: #f00;
+            background-color: #ffeeee;
+        }
+        .task-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .task-duration {
+            font-size: 0.9em;
+            color: #555;
+        }
+        .task-times {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8em;
+            margin-top: 5px;
+        }
+        .task-times span {
+            display: block;
+        }
+        .critical-path-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .path-segment {
+            display: flex;
+            align-items: center;
+        }
+        .arrow {
+            font-size: 24px;
+            color: #333;
+            margin: 0 10px;
+        }
+        .critical-arrow {
+            color: #f00;
+            font-weight: bold;
+        }
+        .parallel-path {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 20px;
+        }
+        .down-arrow {
+            font-size: 24px;
+            color: #333;
+            margin: 5px 0;
+        }
+        .legend {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            border: 1px solid #333;
+        }
+        .critical-color {
+            background-color: #ffeeee;
+            border-color: #f00;
+        }
+        .non-critical-color {
+            background-color: #fff;
+        }
     </style>
 </head>
 <body>
@@ -36,6 +122,110 @@
         
         <div class="analysis-container">
             <h2>Critical Path Identification</h2>
+            
+            <div class="legend">
+                <h3>Legend</h3>
+                <div class="legend-item">
+                    <div class="legend-color critical-color"></div>
+                    <span>Critical Path Task</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color non-critical-color"></div>
+                    <span>Non-Critical Task</span>
+                </div>
+                <p>ES/EF: Earliest Start/Finish | LS/LF: Latest Start/Finish</p>
+            </div>
+            
+            <div class="critical-path-container">
+                <!-- First Segment: Project Setup -->
+                <div class="path-segment">
+                    <div class="task-box critical-task">
+                        <div class="task-name">Project Setup</div>
+                        <div class="task-duration">15 days</div>
+                        <div class="task-times">
+                            <span>ES: 1</span>
+                            <span>EF: 15</span>
+                        </div>
+                        <div class="task-times">
+                            <span>LS: 1</span>
+                            <span>LF: 15</span>
+                        </div>
+                    </div>
+                    <div class="arrow critical-arrow">→</div>
+                </div>
+                
+                <!-- Second Segment: User Auth -->
+                <div class="path-segment">
+                    <div class="task-box critical-task">
+                        <div class="task-name">User Auth</div>
+                        <div class="task-duration">12 days</div>
+                        <div class="task-times">
+                            <span>ES: 16</span>
+                            <span>EF: 27</span>
+                        </div>
+                        <div class="task-times">
+                            <span>LS: 16</span>
+                            <span>LF: 27</span>
+                        </div>
+                    </div>
+                    <div class="arrow critical-arrow">→</div>
+                </div>
+                
+                <!-- Parallel Paths -->
+                <div class="path-segment">
+                    <!-- Reporting (Critical Path) -->
+                    <div class="task-box critical-task">
+                        <div class="task-name">Reporting</div>
+                        <div class="task-duration">16 days</div>
+                        <div class="task-times">
+                            <span>ES: 28</span>
+                            <span>EF: 43</span>
+                        </div>
+                        <div class="task-times">
+                            <span>LS: 28</span>
+                            <span>LF: 43</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Arrow down to Emergency SOS -->
+                    <div class="down-arrow">↓</div>
+                    
+                    <!-- Emergency SOS (Non-critical) -->
+                    <div class="parallel-path">
+                        <div class="task-box">
+                            <div class="task-name">Emergency SOS</div>
+                            <div class="task-duration">14 days</div>
+                            <div class="task-times">
+                                <span>ES: 28</span>
+                                <span>EF: 41</span>
+                            </div>
+                            <div class="task-times">
+                                <span>LS: 30</span>
+                                <span>LF: 43</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="arrow critical-arrow">→</div>
+                </div>
+                
+                <!-- Final Segment: Testing & Deployment -->
+                <div class="path-segment">
+                    <div class="task-box critical-task">
+                        <div class="task-name">Testing & Deployment</div>
+                        <div class="task-duration">10 days</div>
+                        <div class="task-times">
+                            <span>ES: 44</span>
+                            <span>EF: 53</span>
+                        </div>
+                        <div class="task-times">
+                            <span>LS: 44</span>
+                            <span>LF: 53</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="mermaid">
                 flowchart LR
                     A[Project Setup] --> B[User Authentication]
