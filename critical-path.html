@@ -6,6 +6,21 @@
     <title>Justice Link BD - Critical Path Analysis</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        .parallel-tasks {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 15px 0;
+        }
+        .parallel-arrow {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 20px;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -16,7 +31,7 @@
             <a href="wbs.html">WBS</a>
             <a href="cashflow.html">Cash Flow</a>
             <a href="critical-path.html" class="active">Critical Path</a>
-            <a href="use-cases.html">Use Case DIagram</a>
+            <a href="use-cases.html">Use Case Diagram</a>
         </nav>
         
         <div class="analysis-container">
@@ -25,13 +40,30 @@
                 flowchart LR
                     A[Project Setup] --> B[User Authentication]
                     B --> C[Reporting System]
-                    C --> D[Emergency SOS]
-                    D --> E[Testing & Deployment]
+                    B --> D[Emergency SOS]
+                    C --> E[Testing & Deployment]
+                    D --> E
                     style A stroke:#f00,stroke-width:4px
                     style B stroke:#f00,stroke-width:4px
                     style C stroke:#f00,stroke-width:4px
                     style D stroke:#f00,stroke-width:4px
                     style E stroke:#f00,stroke-width:4px
+            </div>
+
+            <div class="parallel-tasks-container">
+                <div style="position: relative;">
+                    <div class="parallel-tasks">
+                        <div>
+                            <h3>Reporting System</h3>
+                            <p>16 days duration</p>
+                        </div>
+                        <div>
+                            <h3>Emergency SOS</h3>
+                            <p>14 days duration</p>
+                        </div>
+                    </div>
+                    <div class="parallel-arrow">↔ Parallel Development</div>
+                </div>
             </div>
 
             <table class="critical-path-table">
@@ -65,13 +97,13 @@
                     <tr>
                         <td>Emergency SOS</td>
                         <td>14 days</td>
-                        <td>Reporting System</td>
-                        <td>0</td>
+                        <td>User Authentication</td>
+                        <td>2 days</td>
                     </tr>
                     <tr>
                         <td>Testing & Deployment</td>
                         <td>10 days</td>
-                        <td>Emergency SOS</td>
+                        <td>Reporting System, Emergency SOS</td>
                         <td>0</td>
                     </tr>
                 </tbody>
@@ -80,13 +112,25 @@
             <div class="analysis-section">
                 <h2>Key Observations</h2>
                 <ul>
-                    <li>Total project duration: <strong>67 days</strong></li>
-                    <li>Any delay in critical tasks will delay the entire project</li>
-                    <li>Non-critical tasks have float time available</li>
+                    <li>Total project duration: <strong>53 days</strong> (reduced from 67 days)</li>
+                    <li>Reporting System and Emergency SOS now developed in parallel</li>
+                    <li>Emergency SOS has 2 days of float time</li>
+                    <li>Critical path remains through Reporting System due to longer duration</li>
+                    <li>Testing & Deployment waits for both parallel tasks to complete</li>
                 </ul>
             </div>
         </div>
     </div>
-    <script src="gantt.js"></script>
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
 </body>
 </html>

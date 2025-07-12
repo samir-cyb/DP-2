@@ -16,7 +16,7 @@
             <a href="wbs.html">WBS</a>
             <a href="cashflow.html" class="active">Cash Flow</a>
             <a href="critical-path.html">Critical Path</a>
-            <a href="use-cases.html">Use Case DIagram</a>
+            <a href="use-cases.html">Use Case Diagram</a>
         </nav>
         
         <div class="analysis-container">
@@ -74,18 +74,13 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Ad Revenue</td>
-                        <td>100,000</td>
-                        <td>Months 12-17</td>
-                    </tr>
-                    <tr>
                         <td>Sponsorships</td>
-                        <td>450,000 (Expected)</td>
+                        <td>500,000</td>
                         <td>Month 9</td>
                     </tr>
                     <tr class="total-row">
                         <td><strong>Total Revenue</strong></td>
-                        <td><strong>550,000</strong></td>
+                        <td><strong>500,000</strong></td>
                         <td></td>
                     </tr>
                 </tbody>
@@ -173,37 +168,37 @@
                     </tr>
                     <tr class="highlight-row">
                         <td>9</td>
-                        <td>450,000</td>
+                        <td>500,000</td>
                         <td>57,500</td>
-                        <td class="positive">+392,500</td>
-                        <td class="positive">+222,501</td>
+                        <td class="positive">+442,500</td>
+                        <td class="positive">+272,501</td>
                     </tr>
                     <tr>
                         <td>10</td>
                         <td>0</td>
                         <td>57,500</td>
                         <td class="negative">-57,500</td>
-                        <td class="positive">+165,001</td>
+                        <td class="positive">+215,001</td>
                     </tr>
                     <tr>
                         <td>11</td>
                         <td>0</td>
                         <td>57,500</td>
                         <td class="negative">-57,500</td>
-                        <td class="positive">+107,501</td>
+                        <td class="positive">+157,501</td>
                     </tr>
                     <tr>
                         <td>12</td>
-                        <td>100,000</td>
+                        <td>0</td>
                         <td>57,500</td>
-                        <td class="positive">+42,500</td>
-                        <td class="positive">+150,001</td>
+                        <td class="negative">-57,500</td>
+                        <td class="positive">+100,001</td>
                     </tr>
                     <tr class="total-row">
                         <td><strong>Year 1 Total</strong></td>
-                        <td><strong>550,000</strong></td>
+                        <td><strong>500,000</strong></td>
                         <td><strong>400,000</strong></td>
-                        <td><strong>+150,000</strong></td>
+                        <td><strong>+100,000</strong></td>
                         <td></td>
                     </tr>
                 </tbody>
@@ -219,7 +214,7 @@
                     </div>
                     <div class="metric-card">
                         <h3>Net Profit (Year 1)</h3>
-                        <p class="metric-value">+150,000 BDT</p>
+                        <p class="metric-value">+100,000 BDT</p>
                         <p class="metric-description">Total inflows minus outflows</p>
                     </div>
                     <div class="metric-card">
@@ -229,7 +224,7 @@
                     </div>
                     <div class="metric-card">
                         <h3>ROI (First Year)</h3>
-                        <p class="metric-value">37.5%</p>
+                        <p class="metric-value">25%</p>
                         <p class="metric-description">(Profit / Total Cost) × 100</p>
                     </div>
                 </div>
@@ -248,7 +243,7 @@
                     datasets: [
                         {
                             label: 'Inflows',
-                            data: [0, 0, 0, 0, 0, 0, 0, 0, 450000, 0, 0, 100000],
+                            data: [0, 0, 0, 0, 0, 0, 0, 0, 500000, 0, 0, 0],
                             backgroundColor: 'rgba(75, 192, 192, 0.7)',
                             borderColor: 'rgba(75, 192, 192, 1)',
                             borderWidth: 1
@@ -297,7 +292,7 @@
                     labels: ['Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5', 'Month 6', 'Month 7', 'Month 8', 'Month 9', 'Month 10', 'Month 11', 'Month 12'],
                     datasets: [{
                         label: 'Cumulative Cash Position',
-                        data: [-10833, -21666, -32499, -39999, -47499, -54999, -112499, -169999, 222501, 165001, 107501, 150001],
+                        data: [-10833, -21666, -32499, -39999, -47499, -54999, -112499, -169999, 272501, 215001, 157501, 100001],
                         backgroundColor: 'rgba(54, 162, 235, 0.2)',
                         borderColor: 'rgba(54, 162, 235, 1)',
                         borderWidth: 3,
